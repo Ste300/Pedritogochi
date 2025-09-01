@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracker de Hábitos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="window">
+    <!-- Mascota -->
+    <div class="pet">
+      <img src="Miku.jpg" alt="Mascota">
+      <h2>Tu Mascota Virtual</h2>
+    </div>
+
+    <!-- Tracker de hábitos -->
+    <h2> Tus Hábitos</h2>
+    <div class="input-group">
+      <input type="text" id="habitInput" placeholder="Escribe un hábito...">
+      <button onclick="addHabit()">Añadir</button>
+    </div>
+    <ul id="habitList"></ul>
+
+    <!-- Barras de progreso -->
+    <div class="progress-section">
+      <h2> Hábitos Saludables</h2>
+
+      <div class="progress-bar">
+        <span> Beber Agua</span>
+        <div class="bar"><div id="agua" class="fill">0%</div></div>
+      </div>
+
+      <div class="progress-bar">
+        <span> Hacer Ejercicio</span>
+        <div class="bar"><div id="ejercicio" class="fill">0%</div></div>
+      </div>
+
+      <div class="progress-bar">
+        <span> Leer</span>
+        <div class="bar"><div id="leer" class="fill">0%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const habitInput = document.getElementById("habitInput");
+    const habitList = document.getElementById("habitList");
+
+    function addHabit() {
+      const habitText = habitInput.value.trim();
+      if (habitText === "") return;
+
+      const li = document.createElement("li");
+
+      const habitInfo = document.createElement("div");
+      habitInfo.classList.add("habit-info");
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.addEventListener("change", () => {
+        li.classList.toggle("completed");
+      });
+
+      const span = document.createElement("span");
+      span.textContent = habitText;
+
+      habitInfo.appendChild(checkbox);
+      habitInfo.appendChild(span);
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Eliminar";
+      deleteBtn.classList.add("delete-btn");
+      deleteBtn.addEventListener("click", () => {
+        li.remove();
+      });
+
+      li.appendChild(habitInfo);
+      li.appendChild(deleteBtn);
+      habitList.appendChild(li);
+
+      habitInput.value = "";
+    }
+
+    habitInput.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        addHabit();
+      }
+    });
+
+  
+    function updateProgress(id, value) {
+      const bar = document.getElementById(id);
+      bar.style.width = value + "%";
+      bar.textContent = value + "%";
+    }
+
+   
+    setTimeout(() => updateProgress("agua", 40), 1000);
+    setTimeout(() => updateProgress("ejercicio", 70), 2000);
+    setTimeout(() => updateProgress("leer", 20), 3000);
+  </script>
+</body>
+</html>

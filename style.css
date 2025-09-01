@@ -1,0 +1,150 @@
+/* Estilo general */
+body {
+  font-family: Arial, sans-serif;
+  background: #0d1b2a;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: #e0e6ed;
+}
+
+/* Ventana principal */
+.window {
+  margin-top: 30px;
+  background: #1b263b; 
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Mascota */
+.pet {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pet img {
+  max-width: 150px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* Títulos */
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #e0e6ed;
+}
+
+/* Input de hábitos */
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #415a77;
+  background: #0d1b2a;
+  color: #e0e6ed;
+}
+
+input[type="text"]::placeholder {
+  color: #7d8597;
+}
+
+button {
+  background: #1d72b8;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #155a8a;
+}
+
+/* Lista de hábitos */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #27374d;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #7d8597;
+}
+
+.habit-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.delete-btn {
+  background: #d00000;
+  padding: 6px 10px;
+}
+
+.delete-btn:hover {
+  background: #9b0000;
+}
+
+/* Barras de progreso */
+.progress-section {
+  margin-top: 25px;
+}
+
+.progress-bar {
+  margin-bottom: 15px;
+}
+
+.progress-bar span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #e0e6ed;
+}
+
+.bar {
+  background: #415a77;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+}
+
+.fill {
+  height: 100%;
+  width: 0%;
+  background: #1d72b8;
+  text-align: right;
+  padding-right: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 10px 0 0 10px;
+  transition: width 0.4s ease-in-out;
+}
